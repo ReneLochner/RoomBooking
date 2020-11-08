@@ -1,0 +1,13 @@
+﻿<controls:MetroWindow 
+        x:Class="RoomBooking.Wpf.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Height="400" Width="400"
+        MinHeight="300" MinWidth="300"
+        Title="RoomBooking">
+
+</controls:MetroWindow>
+
+
+

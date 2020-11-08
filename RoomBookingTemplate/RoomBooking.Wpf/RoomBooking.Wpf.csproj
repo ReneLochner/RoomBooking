@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro" Version="2.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RoomBooking.Core\RoomBooking.Core.csproj" />
+    <ProjectReference Include="..\RoomBooking.Persistence\RoomBooking.Persistence.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="DataTransferObjects\" />
+  </ItemGroup>
+
+</Project>

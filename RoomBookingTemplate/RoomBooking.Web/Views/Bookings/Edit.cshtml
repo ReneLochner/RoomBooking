@@ -1,0 +1,53 @@
+﻿@model RoomBooking.Web.ViewModels.BookingsViewModel
+
+@{
+    ViewBag.Title = "Edit booking";
+}
+
+<h2>Edit booking</h2>
+
+<form method="post" asp-controller="Bookings" asp-action="Edit">
+    <input asp-for="Id" type="hidden" />
+    <div class="form-group">
+        <label asp-for="RoomId">Room</label>
+        <div>
+            <select asp-for="RoomId" class="form-control">
+                @foreach (var room in Model.Rooms)
+            {
+                    <option value=@room.Id>@room.RoomNumber</option>
+                }
+            </select>
+        </div>
+        <span asp-validation-for="RoomId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CustomerId">Customer</label>
+        <div>
+            <select asp-for="CustomerId" class="form-control">
+                @foreach (var customer in Model.Customers)
+            {
+                    <option value=@customer.Id>@customer.Name</option>
+                }
+            </select>
+        </div>
+        <span asp-validation-for="CustomerId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="From">From</label>
+        <input asp-for="From" class="form-control" />
+        <span asp-validation-for="From" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="To">To</label>
+        <input asp-for="To" class="form-control" />
+        <span asp-validation-for="To" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+@section Scripts {
+    <script></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+

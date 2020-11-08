@@ -1,0 +1,76 @@
+﻿@model RoomBooking.Web.ViewModels.HomeIndexViewModel
+@{
+    ViewBag.Title = "Room Booking";
+}
+
+<h2>@ViewBag.Message</h2>
+
+
+<form method="post" asp-controller="Home" asp-action="Index">
+    <div class="form-group">
+        Customer:
+        <select asp-for="CustomerId">
+            @foreach (var customer in Model.Customers)
+            {
+                <option value=@customer.Id>@customer.Name</option>
+            }
+        </select>
+        <button type="submit" class="btn btn-primary">Reload</button>
+    </div>
+    <hr/>
+
+
+    @*<div id="divBookingList">
+        @Html.Partial("_BookingList", Model.Bookings)
+    </div>*@
+    
+    <div class="row">
+        <div class="col-md-6">
+
+            <table class="table table-striped">
+                <tr>
+                    <th class="col-md-2">
+                        Roomnumber
+                    </th>
+                    <th class="col-md-2">
+                        From
+                    </th>
+                    <th class="col-md-2">
+                        To
+                    </th>
+                    <th class="col-md-2">
+                    </th>
+                </tr>
+
+                @foreach (var booking in Model.Bookings)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => booking.Room.RoomNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => booking.From)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => booking.To)
+                        </td>
+                        <td >
+                            <a href="@Url.Action("Edit", "Bookings", new {id = booking.Id})">
+                                Edit
+                            </a> |
+                            <a href="@Url.Action("Delete", "Bookings", new {id = booking.Id})">
+                                Delete
+                            </a>
+                        </td>
+
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+
+</form>
+
+
+
