@@ -11,5 +11,7 @@ namespace RoomBooking.Core.Contracts
         Task<IEnumerable<Customer>> GetAllWithBookingsAndRoomsAsync();
 
         Task<Customer> GetByIdAsync(int id);
+
+        void Update(Customer customer);
     }
 }

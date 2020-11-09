@@ -1,0 +1,30 @@
+﻿<Window x:Class="RoomBooking.Wpf.Views.EditCustomerView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RoomBooking.Wpf.Views"
+        mc:Ignorable="d"
+        Title="EditCustomerView" Height="150" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <UniformGrid Grid.Row="0" Rows="3" Columns="2">
+            <Label>Zuname:</Label>
+            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=LastName, UpdateSourceTrigger=PropertyChanged}" />
+            <Label>Vorname:</Label>
+            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=FirstName, UpdateSourceTrigger=PropertyChanged}" />
+            <Label>Iban:</Label>
+            <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Iban, UpdateSourceTrigger=PropertyChanged}" />
+        </UniformGrid>
+
+        <UniformGrid Grid.Row="2">
+            <Button Content="Undo" Command="{Binding CmdUndo}" />
+            <Button Content="Save" Command="{Binding CmdSave}" />
+        </UniformGrid>
+    </Grid>
+</Window>

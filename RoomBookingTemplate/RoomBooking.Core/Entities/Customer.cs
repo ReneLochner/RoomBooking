@@ -12,6 +12,8 @@ namespace RoomBooking.Core.Entities
 
         public string Iban { get; set; }
 
+        public string FullName => $"{FirstName} {LastName}";
+
         public ICollection<Booking> Bookings { get; set; }
 
         public Customer()
